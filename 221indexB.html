@@ -11,7 +11,16 @@
 			background-color: #ddddff;
 		}
 		#img1popin{}
-		
+		#img2popout {
+			z-index: 5;
+			position: absolute;
+			width: 550px;
+			height: 300px;
+			top: 50px;
+			border: 1px dashed #000099;
+			background-color: #ddddff;
+		}
+		#img2popin{}
 	</style>
 	<script type = "text/javascript">
 		function initPopout()
@@ -36,7 +45,32 @@
 			im1.id = "img1popin";
 			im1.innerHTML = "";
 		}
+		
+			function initPopout()
+		{
+			var thumb2 = document.getElementById("image2"); 
+			
+			thumb2.onmouseover = showDetailedView;
+		}
+
+		function showDetailedView()
+		{
+			var im2 = document.getElementById("img2popin");
+			im2.id = "img2popout";
+			im2.innerHTML = "<br /><TABLE><TR><TH rowspan='3'><img src='aprilla/pic2.jpg' width='250'><TH align='left'>Artist's Name: <TH align='left'>Aprill Aronie<TR><TH align='left'>File Name: <TH align='left'>pic1.jpg<TR></TABLE> ";
+			var popOut = document.getElementById("img2popout");
+			popOut.onmouseout = hideDetailedView;			
+		}
+
+		function hideDetailedView()
+		{
+			var im2 = document.getElementById("img2popout");
+			im2.id = "img2popin";
+			im2.innerHTML = "";
+		}
 	</script>
+	
+	
 </head>
 <body onload="initPopout();">
 <br>
